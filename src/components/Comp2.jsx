@@ -1,11 +1,14 @@
 import React from "react";
-import Comp3
- from "./Comp3";
-const Comp2 = ({detail}) => {
+import Comp3 from "./Comp3";
+const Comp2 = ({ detail, number }) => {
   return (
     <>
-      <h1 className="text-2xl m-5 bg-gray-200 font-bold">this is componet 2</h1>
-      <Comp3 detail = {detail}/>
+      <div className="bg-gray-500">
+        <h1 className="text-2xl m-5 font-bold">
+          this is componet 2
+        </h1>
+      </div>
+        <Comp3 detail={detail} number={number} />
     </>
   );
 };

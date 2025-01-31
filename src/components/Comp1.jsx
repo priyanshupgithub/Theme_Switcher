@@ -1,11 +1,15 @@
 import React from "react";
 import Comp2 from "./Comp2";
 
-const Comp1 = ({detail}) => {
+const Comp1 = ({ detail, number }) => {
   return (
     <>
-      <h1 className="text-2xl m-5 bg-gray-200 font-bold">this is component 1</h1>
-      <Comp2 detail = {detail}/>
+      <div className="bg-gray-400">
+        <h1 className="text-2xl m-5 font-bold">
+          this is component 1
+        </h1>
+      </div>
+        <Comp2 detail={detail} number={number} />
     </>
   );
 };
