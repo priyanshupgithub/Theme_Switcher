@@ -1,30 +1,24 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./App.css";
 import Comp1 from "./components/Comp1";
+import { DataContext } from "./contexts/DataContext";
 
 function App() {
-  const user = {
-    name: "Priyanshu",
-    age: 34,
-    gender: "Male",
-  };
+  const { number, handleNumberChange } = useContext(DataContext);
 
-  const [number, setNumber] = useState(0);
-  const handleNumberChange = (e) => {
-    setNumber(e.target.value);
-  };
   return (
     <>
-      <div>
-      <label>Enter the number : </label>
-      <input
-        type="number"
-        value={number}
-        onChange={handleNumberChange}
-        className="w-14 border border-gray-500 rounded-md"
-      />
-      </div>
-      <Comp1 detail={user} number={number} />
+    <div className="font-bold m-4 bg-gray-300 p-3"> Using the useContext Api </div>
+        <div>
+          <label>Enter the number : </label>
+          <input
+            type="number"
+            value={number}
+            onChange={handleNumberChange}
+            className="w-14 border border-gray-500 rounded-md"
+          />
+        </div>
+        <Comp1  />
     </>
   );
 }
