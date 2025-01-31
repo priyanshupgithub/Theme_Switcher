@@ -8,6 +8,9 @@ import { ThemeContext, ThemeContextProvider } from "./contexts/ThemeContext";
 function App() {
   // const { number, handleNumberChange } = useContext(DataContext);
   const { theme } = useContext(ThemeContext);
+  const BodyClass = `${
+    theme !== "light" ? "bg-black text-white" : ""
+  } h-screen flex justify-center items-center`;
   return (
     // <>
     // <div className="font-bold m-4 bg-gray-300 p-3"> Using the useContext Api </div>
@@ -25,15 +28,7 @@ function App() {
 
     <>
       <Navbar />
-      <div
-        className={
-          theme == "light"
-            ? "h-screen flex justify-center items-center"
-            : "h-screen flex justify-center items-center bg-black text-white"
-        }
-      >
-        Theme Swither application
-      </div>
+      <div className={BodyClass}>Theme Swither application</div>
     </>
   );
 }

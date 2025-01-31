@@ -4,29 +4,28 @@ import { MdDarkMode } from "react-icons/md";
 import { ThemeContext } from "../contexts/ThemeContext";
 
 const Navbar = () => {
-  const { theme, setTheme , handleTheme} = useContext(ThemeContext);
- 
+  const { theme, setTheme, handleTheme } = useContext(ThemeContext);
+
+  const isLight = theme === "light";
+  const navClass = `${
+    isLight ? "bg-gray-300" : "bg-black text-white border-b border-gray-100"
+  } flex justify-between px-4`;
+  const liClass = `${
+    isLight ? "hover:text-gray-600" : "hover:text-gray-300"
+  } font-bold cursor-pointer text-md hover:scale-110  duration-150`;
+
   return (
     <>
-      <div className={theme === "light"? ( "bg-gray-300 flex justify-between px-4"): ("bg-black text-white flex justify-between px-4 border-b border-gray-100")}  >
+      <div className={navClass}>
         <ul className="flex space-x-10 p-4">
-          <li className={theme==="light"? ("font-bold cursor-pointer text-md hover:scale-110 hover:text-gray-600 duration-150"): "font-bold cursor-pointer text-md hover:scale-110 hover:text-gray-300 duration-150"}>
-            Home
-          </li>
-          <li className={theme==="light"? ("font-bold cursor-pointer text-md hover:scale-110 hover:text-gray-600 duration-150"): "font-bold cursor-pointer text-md hover:scale-110 hover:text-gray-300 duration-150"}>
-            About
-          </li>
-          <li className={theme==="light"? ("font-bold cursor-pointer text-md hover:scale-110 hover:text-gray-600 duration-150"): "font-bold cursor-pointer text-md hover:scale-110 hover:text-gray-300 duration-150"}>
-            Careers
-          </li>
-          <li className={theme==="light"? ("font-bold cursor-pointer text-md hover:scale-110 hover:text-gray-600 duration-150"): "font-bold cursor-pointer text-md hover:scale-110 hover:text-gray-300 duration-150"}>
-            Contact Us
-          </li>
+          {["Home", "About", "Careers", "Contact Us"].map((item, index) => (
+            <li key={index} className={liClass}>
+              {item}
+            </li>
+          ))}
         </ul>
 
-        <button className="text-3xl pr-3"
-            onClick={handleTheme}
-        >
+        <button className="text-3xl pr-3" onClick={handleTheme}>
           {theme === "light" ? <MdDarkMode /> : <CiLight />}
         </button>
       </div>
