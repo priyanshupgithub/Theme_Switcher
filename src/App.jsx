@@ -1,12 +1,18 @@
 
 import './App.css'
+import Comp1 from './components/Comp1'
 
 function App() {
-
+  const user = {
+    name : "Priyanshu",
+    age:34,
+    gender : "Male",
+  }
+  
   return (
-    <h1 className="font-bold text-3xl text-start underline text-red-400">
-      Hello world!
-    </h1>
+    <>
+      <Comp1 detail = {user} />
+    </>
   )
 }
 
